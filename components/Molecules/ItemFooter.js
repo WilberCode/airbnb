@@ -3,7 +3,7 @@ const ItemFooter = ({title,list}) => {
         <div className="space-y-4 text-sm text-gray-800 " >
             <h5  className="font-bold" >{title}</h5>
             <ul>
-                {list.map(item => <li>{item}</li>)}
+                {list.map((item, index) => <li key={index}  >{item}</li>)}
             </ul>
         </div>
     )

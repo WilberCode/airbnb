@@ -22,7 +22,7 @@ const Footer = () => {
     return (
         <footer  className=" bg-gray-100  py-14 text-gray-600 " >
             <section  className=" container sm:px-16  grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-10" > 
-                {footerList?.map(({title,list})=> <ItemFooter title={title} list={list}/>  )}
+                {footerList?.map(({title,list}, index)=> <ItemFooter key={index} title={title} list={list}/>  )}
             </section>
         </footer>
     )
