@@ -1,4 +1,4 @@
-import ItemFooter from "../Molecules/itemFooter"
+import ItemFooter from "../Molecules/ItemFooter"
 
 const footerList = [
     {
