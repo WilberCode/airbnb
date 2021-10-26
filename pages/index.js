@@ -41,7 +41,7 @@ export default function Home({ exploreData,cardData}) {
           buttonText="Get Inspired"
         />
         </section>
-     
+        
       </main> 
       <Footer/> 
 

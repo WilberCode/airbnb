@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import {StarIcon} from '@heroicons/react/solid'
 import { HeartIcon } from '@heroicons/react/outline'
+import Map from './Map'
 const InfoCard = ({title, description, img,  lat, location, long, price, star, total}) => {
+   
     return (
-        <div className=" flex border-b   px-2 py-7  cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t " >
+        <div  className=" flex border-b   px-2 py-7  cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t " >
             <div className="relative w-40  h-24 md:h-52 md:w-80 flex-shrink-0 " >
                 <Image src={img} alt={title} layout="fill" objectFit="cover" className="rounded-2xl"  /> 
             </div>

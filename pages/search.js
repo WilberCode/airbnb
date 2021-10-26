@@ -4,17 +4,16 @@ import Header from "../components/Header";
 import Footer from "../components/Organisms/Footer";
 import { format } from "date-fns";
 import InfoCard from "../components/Molecules/InfoCard";
+import Map from "../components/Molecules/Map"; 
 
-
-const Search = ({ searchResult }) => {
-    console.log(searchResult)
+const Search = ({ searchResults }) => { 
 
     const route = useRouter()
     const { location, startDate, endDate, noOfguests } = route.query;
     const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
     const formattedEndDate = format(new Date(endDate), "dd MMMM yy")
-    const range = `${formattedStartDate} - ${formattedEndDate}`
-
+    const range = `${formattedStartDate} - ${formattedEndDate}` 
+ 
     return (
         <div>
             <Header placeholder={`${location} | ${range} | ${noOfguests}`} />
@@ -31,7 +30,7 @@ const Search = ({ searchResult }) => {
                         <FilterOption text="More filters" />
                     </div>
                     <div className=" space-y-3 mt-4" >
-                        {searchResult.map(({ title, description, img,  lat, location, long, price, star, total }) => (
+                        {searchResults.map(({ title, description, img,  lat, location, long, price, star, total }) => (
                             <InfoCard
                                 key={lat}
                                 title={title}
@@ -42,12 +41,15 @@ const Search = ({ searchResult }) => {
                                 long={long}
                                 price={price}
                                 star={star}
-                                total ={total} 
+                                total ={total}  
+                               
                             />
                         ))}
                     </div>
                 </section>
-                <div>sss</div>
+                <section className="hidden xl:flex xl:min-w-[600px]" >
+                    <Map searchResults={searchResults}  />
+                </section>
 
             </main>
 
@@ -60,10 +62,10 @@ export default Search
 
 
 export async function getServerSideProps() {
-    const searchResult = await fetch('https://links.papareact.com/isz').then(res => res.json())
+    const searchResults = await fetch('https://links.papareact.com/isz').then(res => res.json())
     return {
         props: {
-            searchResult: searchResult
+            searchResults: searchResults
         }
     }
 }
